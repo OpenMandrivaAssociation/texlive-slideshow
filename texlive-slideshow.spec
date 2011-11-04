@@ -54,6 +54,7 @@ there are disadvantages too).
 %doc %{_texmfdistdir}/doc/metapost/slideshow/sshowex2.pdf
 %doc %{_texmfdistdir}/doc/metapost/slideshow/sshowex3.pdf
 %doc %{_texmfdistdir}/doc/metapost/slideshow/sshowintro.pdf
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -64,3 +65,5 @@ there are disadvantages too).
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar metapost doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
