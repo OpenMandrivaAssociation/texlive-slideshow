@@ -6,7 +6,7 @@
 # catalog-version 1.0
 Name:		texlive-slideshow
 Version:	1.0
-Release:	4
+Release:	5
 Summary:	Generate slideshow with MetaPost
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/metapost/contrib/macros/slideshow
