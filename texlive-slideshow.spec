@@ -1,18 +1,12 @@
-# revision 15878
-# category Package
-# catalog-ctan /graphics/metapost/contrib/macros/slideshow
-# catalog-date 2008-12-04 14:14:32 +0100
-# catalog-license other-free
-# catalog-version 1.0
 Name:		texlive-slideshow
-Version:	1.0
-Release:	11
+Version:	15878
+Release:	1
 Summary:	Generate slideshow with MetaPost
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/metapost/contrib/macros/slideshow
 License:	OTHER-FREE
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/slideshow.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/slideshow.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/slideshow.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/slideshow.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -25,12 +19,12 @@ distiller). Such an arrangement has its advantages (though
 there are disadvantages too).
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -48,24 +42,10 @@ there are disadvantages too).
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar metapost doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.0-2
-+ Revision: 756069
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.0-1
-+ Revision: 719551
-- texlive-slideshow
-- texlive-slideshow
-- texlive-slideshow
-- texlive-slideshow
-
