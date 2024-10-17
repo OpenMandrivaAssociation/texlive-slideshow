@@ -3,7 +3,7 @@ Version:	15878
 Release:	2
 Summary:	Generate slideshow with MetaPost
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/graphics/metapost/contrib/macros/slideshow
+URL:		https://www.ctan.org/tex-archive/graphics/metapost/contrib/macros/slideshow
 License:	OTHER-FREE
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/slideshow.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/slideshow.doc.r%{version}.tar.xz
