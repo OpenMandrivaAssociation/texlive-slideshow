@@ -1,51 +1,22 @@
-Name:		texlive-slideshow
-Version:	15878
-Release:	2
+%global tl_name slideshow
+%global tl_revision 15878
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.0
+Release:	%{tl_revision}.1
 Summary:	Generate slideshow with MetaPost
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/graphics/metapost/contrib/macros/slideshow
-License:	OTHER-FREE
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/slideshow.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/slideshow.doc.r%{version}.tar.xz
+License:	other-free
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/slideshow.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/slideshow.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package provides a means of creating presentations in
-MetaPost, without intervention from other utilities (except a
-distiller). Such an arrangement has its advantages (though
-there are disadvantages too).
+The package provides a means of creating presentations in MetaPost,
+without intervention from other utilities (except a distiller). Such an
+arrangement has its advantages (though there are disadvantages too).
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/metapost/slideshow/pathalong.mp
-%{_texmfdistdir}/metapost/slideshow/slideshow.mp
-%{_texmfdistdir}/metapost/slideshow/sshowex.mp
-%{_texmfdistdir}/metapost/slideshow/sshowex2.mp
-%{_texmfdistdir}/metapost/slideshow/sshowex3.mp
-%{_texmfdistdir}/metapost/slideshow/sshowintro.mp
-%doc %{_texmfdistdir}/doc/metapost/slideshow/slideshow.txt
-%doc %{_texmfdistdir}/doc/metapost/slideshow/sshowex.pdf
-%doc %{_texmfdistdir}/doc/metapost/slideshow/sshowex2.pdf
-%doc %{_texmfdistdir}/doc/metapost/slideshow/sshowex3.pdf
-%doc %{_texmfdistdir}/doc/metapost/slideshow/sshowintro.pdf
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar metapost doc %{buildroot}%{_texmfdistdir}
